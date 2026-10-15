@@ -5,7 +5,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import os
 from zanetti.tvar_estimation import (
-    VAR_NAMES, ENDOG_VARS, N_VARS, THRESHOLD,
+    VAR_NAMES, N_VARS, THRESHOLD,
     sign_restrictions, identify_mp_shock
 )
 
