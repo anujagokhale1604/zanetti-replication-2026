@@ -6,7 +6,6 @@ N_VARS = 7
 L      = 1
 VAR_NAMES  = ["ln_real_gdp","ln_pce_goods","tightness",
                "ln_import_price","spare_capacity","fed_funds","acr_proxy"]
-ENDOG_VARS = VAR_NAMES
 
 THRESHOLD  = 3.34
 
@@ -57,7 +56,6 @@ def gibbs_var(Y, X, n_draws=500, burnin=200, lam=0.1):
     Sigma  = S_ols.copy()
     B_out, S_out = [], []
     for draw in range(n_draws + burnin):
-        Sig_inv = np.linalg.inv(Sigma + 1e-6*np.eye(n))
         Vn = np.linalg.inv(XtX + V0_inv + 1e-8*np.eye(k))
         Bn = Vn @ (XtY + V0_inv @ B0)
         try:
